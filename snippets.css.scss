@@ -1,0 +1,91 @@
+@mixin border-radius($top-left-radius, $top-right-radius, $bottom-right-radius, $bottom-left-radius) {
+	-webkit-border-radius: $top-left-radius $top-right-radius $bottom-right-radius $bottom-left-radius;
+	-moz-border-radius: $top-left-radius $top-right-radius $bottom-right-radius $bottom-left-radius;
+	-ms-border-radius: $top-left-radius $top-right-radius $bottom-right-radius $bottom-left-radius;
+	-o-border-radius: $top-left-radius $top-right-radius $bottom-right-radius $bottom-left-radius;
+	border-radius: $top-left-radius $top-right-radius $bottom-right-radius $bottom-left-radius;
+}
+
+@mixin border-radius-equal($radius) {
+	@include border-radius($radius, $radius, $radius, $radius);
+}
+
+@mixin background-vertical-gradient ($top-color, $bottom-color) {
+	background-color:$bottom-color;
+	background-image:linear-gradient(bottom, $bottom-color 0, $top-color 100%);
+	background-image:-o-linear-gradient(bottom, $bottom-color 0, $top-color 100%);
+	background-image:-moz-linear-gradient(bottom, $bottom-color 0, $top-color 100%);
+	background-image:-webkit-linear-gradient(bottom, $bottom-color 0, $top-color 100%);
+	background-image:-ms-linear-gradient(bottom, $bottom-color 0, $top-color 100%);
+	background-image:-webkit-gradient(linear, left bottom, left top, color-stop(0, $bottom-color), color-stop(1, $top-color));
+}
+
+@mixin border-box {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-khtml-box-sizing: border-box;
+}
+
+// Reusable Styles
+@mixin animation($keyframes-name, $duration) {
+	animation:$keyframes-name $duration;
+	-moz-animation:$keyframes-name $duration;
+	-webkit-animation:$keyframes-name $duration;
+	-o-animation:$keyframes-name $duration;
+}
+
+.show {
+	display:block !important;
+	@include animation(show, .5s);
+}
+
+//TODO: there's got to be a better way to do this :-/
+@keyframes show {
+	from {
+		opacity:0;
+		display:block;
+	}
+	to {
+		opacity:1;
+		display:block;
+	}
+}
+
+@-moz-keyframes show {
+	from {
+		opacity:0;
+		display:block;
+	}
+	to {
+		opacity:1;
+		display:block;
+	}
+}
+
+@-webkit-keyframes show {
+	from {
+		opacity:0;
+		display:block;
+	}
+	to {
+		opacity:1;
+		display:block;
+	}
+}
+
+@-o-keyframes show {
+	from {
+		opacity:0;
+		display:block;
+	}
+	to {
+		opacity:1;
+		display:block;
+	}
+}
+
+.hide {
+	display:none !important;
+}
