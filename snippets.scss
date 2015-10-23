@@ -66,6 +66,12 @@
 	}
 }
 
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
 .show {
 	display: block !important;
 	@include animation(show, .5s);
